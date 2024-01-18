@@ -23,3 +23,7 @@ node ./scripts/build.mjs
 
 ## Compatibles
 Google Chrome は確認済み。Firefox は未検証。
+
+## ToDo
+* ソースコードが適当（そもそもこのツールはほぼ自分用）
+* From @kaonasi-biwa: searchForParentElement は closest メソッドで置き換え可能らしい
