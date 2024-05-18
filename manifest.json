@@ -1,17 +1,17 @@
 {
     "name": "Twitter Bookmark Downloader",
     "author": "Kotone Fami",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "web_accessible_resources": [
         {
             "resources": ["*"],
-            "matches": ["*://*.twitter.com/*"]
+            "matches": ["*://*.twitter.com/*", "*://*.x.com/*"]
         }
     ],
     "content_scripts": [
         {
-            "matches": ["*://*.twitter.com/*"],
+            "matches": ["*://*.twitter.com/*", "*://*.x.com/*"],
             "js": ["index.js"],
             "run_at": "document_start"
         }
