@@ -22,8 +22,10 @@ node ./scripts/build.mjs
 お好きなコマンドをどうぞ。
 
 ## Compatibles
-Google Chrome は確認済み。Firefox は未検証。
+Google Chrome で動作確認済み。
+
+Firefox はビルド時に `firefox` を指定してください: `pnpm run build firefox`（Contributor: @kaonasi-biwa）。
 
 ## ToDo
 * ソースコードが適当（そもそもこのツールはほぼ自分用）
-* From @kaonasi-biwa: searchForParentElement は closest メソッドで置き換え可能らしい
+* Misskey クリップ機能の追加（設定画面を追加する必要がある😟）
