@@ -39,37 +39,10 @@ export function runWithAllElement<T extends Element>(selector: string, event: ((
                 event(value as T);
             });
         // NOTE: addedNodes に含まれている要素の子要素の中で、Setで重複を排除しつつセレクタにマッチする要素を調べる
-        new Set(addedElements.map(element => searchForChildElement(element, selector)).flat()).forEach((value: Element) => {
+        new Set(addedElements.map(element => [...element.querySelectorAll(selector)]).flat()).forEach((value: Element) => {
             if (once) observer.disconnect();
             event(value as T);
         });
     });
     observer.observe((parentElement ?? document), { subtree: true, childList: true });
-}
-
-/**
- * 指定された要素の親要素の中で、指定されたセレクタにマッチする親要素を取得します。
- * @param element 要素
- * @param selector セレクタ
- */
-export function searchForParentElement(element: HTMLElement, selector: string): HTMLElement | null {
-    if (element.parentElement === null) return null;
-    if (element.parentElement.matches(selector)) return element.parentElement;
-    return searchForParentElement(element.parentElement, selector);
-}
-
-/**
- * 指定された要素の子要素の中で、指定されたセレクタにマッチする子要素を取得します。
- * @param element 要素
- * @param selector セレクタ
- */
-export function searchForChildElement(element: Element, selector: string): Element[] {
-    if (element.children.length === 0) return [];
-
-    const results: Element[] = [];
-    for (const el of element.children) {
-        if (el.matches(selector)) results.push(el);
-        results.push(...searchForChildElement(el, selector));
-    }
-    return results;
 }
