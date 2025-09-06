@@ -4,5 +4,8 @@
 	},
 	"dependencies": {
 		"esbuild": "^0.19.11"
+	},
+	"devDependencies": {
+		"@types/node": "^24.3.1"
 	}
 }
