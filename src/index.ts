@@ -1,4 +1,4 @@
-import { waitForElement, runWithAllElement, searchForParentElement } from "./lib/element.ts";
+import { waitForElement, runWithAllElement } from "./lib/element.ts";
 
 class Media {
     /**
@@ -239,7 +239,7 @@ runWithAllElement<HTMLElement>('article[data-testid="tweet"]', element => {
 //     };
 
     runWithAllElement<HTMLAnchorElement>('a[href*="/photo/"]', element => {
-        const tweet = new Tweet(searchForParentElement(element, '[data-testid="tweet"]')!);
+        const tweet = new Tweet(element.closest('[data-testid="tweet"]')!);
 
         const downloadButton = element.appendChild(downloadButtonTemplate.cloneNode(true)) as HTMLDivElement;
         downloadButton.onclick = async evt => {

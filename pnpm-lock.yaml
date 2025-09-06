@@ -11,6 +11,10 @@ importers:
       esbuild:
         specifier: ^0.19.11
         version: 0.19.12
+    devDependencies:
+      '@types/node':
+        specifier: ^24.3.1
+        version: 24.3.1
 
 packages:
 
@@ -152,10 +156,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@types/node@24.3.1':
+    resolution: {integrity: sha512-3vXmQDXy+woz+gnrTvuvNrPzekOi+Ds0ReMxw0LzBiK3a+1k0kQn9f2NWk+lgD4rJehFUmYy2gMhJ2ZI+7YP9g==}
+
   esbuild@0.19.12:
     resolution: {integrity: sha512-aARqgq8roFBj054KvQr5f1sFu0D65G+miZRCuJyJ0G13Zwx7vRar5Zhn2tkQNzIXcBrNVsv/8stehpj+GAjgbg==}
     engines: {node: '>=12'}
     hasBin: true
+
+  undici-types@7.10.0:
+    resolution: {integrity: sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag==}
 
 snapshots:
 
@@ -228,6 +238,10 @@ snapshots:
   '@esbuild/win32-x64@0.19.12':
     optional: true
 
+  '@types/node@24.3.1':
+    dependencies:
+      undici-types: 7.10.0
+
   esbuild@0.19.12:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.19.12
@@ -253,3 +267,5 @@ snapshots:
       '@esbuild/win32-arm64': 0.19.12
       '@esbuild/win32-ia32': 0.19.12
       '@esbuild/win32-x64': 0.19.12
+
+  undici-types@7.10.0: {}
