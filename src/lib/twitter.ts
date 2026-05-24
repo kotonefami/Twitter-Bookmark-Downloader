@@ -32,7 +32,7 @@ export class Media {
      */
     getOriginalUrl(): string {
         if (this.url.startsWith("https://pbs.twimg.com/media/")) {
-            return this.url.replace(/name=([0-9a-z]+)/, "name=4096x4096").replace(/format=([a-z0-9]+)/, "format=png");
+            return this.url.replace(/name=([0-9a-z]+)/, "name=4096x4096");
         } else if (this.url.startsWith("https://pbs.twimg.com/profile_images/")) {
             return this.url.replace("_original", "");
         } else {
